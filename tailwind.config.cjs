@@ -1,271 +1,392 @@
-// tailwind.config.ts
-// Auto-generated from tokens-map.json
-
 /** @type {import('tailwindcss').Config} */
+
+// 從 tokens.json 讀取的設計系統
+const tokens = require('./tokens.json');
+
+// 解析 core tokens (基礎顏色)
+const coreColors = tokens.core.core;
+
+// 解析 semantic tokens (語義化顏色)
+const semanticTokens = tokens.semantic.semantic;
+
+// 解析 component tokens (組件顏色)
+const componentTokens = tokens.component.component;
 
 module.exports = {
   content: [
-    './app/**/*.{js,vue,ts}',
-    './app.vue',
-    './app/components/**/*.{js,vue,ts}',
-    './app/layouts/**/*.vue',
-    './app/pages/**/*.vue',
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./app.vue",
+    "./app/**/*.{js,vue,ts}",
   ],
   theme: {
     extend: {
+      // ==========================================
+      // 基礎顏色 (Core Colors)
+      // ==========================================
       colors: {
-        // Core Colors
-        'black': 'var(--color-black)',
-        'white': 'var(--color-white)',
-        'brand': 'var(--color-brand)',
-        'transparent': 'var(--color-transparent)',
-
-        // Surface Colors
-        'surface': {
-          100: 'var(--color-surface-100)',
-          200: 'var(--color-surface-200)',
-          300: 'var(--color-surface-300)',
+        // 品牌色
+        brand: coreColors.colorsBrand,
+        
+        // 黑白
+        black: coreColors.colorsBlack,
+        white: coreColors.colorsWhite,
+        transparent: coreColors.colorsTransparent,
+        
+        // 灰階
+        gray: {
+          50: '#f9fafb',
+          100: coreColors.colorsGray100,
+          200: coreColors.colorsGray200,
+          300: coreColors.colorsGray300,
+          400: coreColors.colorsGray400,
+          500: coreColors.colorsGray500,
+          600: coreColors.colorsGray600,
+          700: coreColors.colorsGray700,
+          800: coreColors.colorsGray800,
+          900: coreColors.colorsGray900,
         },
-
-        // Gray Scale
-        'gray': {
-          100: 'var(--color-gray-100)',
-          200: 'var(--color-gray-200)',
-          300: 'var(--color-gray-300)',
-          400: 'var(--color-gray-400)',
-          500: 'var(--color-gray-500)',
-          600: 'var(--color-gray-600)',
-          700: 'var(--color-gray-700)',
-          800: 'var(--color-gray-800)',
-          900: 'var(--color-gray-900)',
+        
+        // 紅色
+        red: {
+          100: coreColors.colorsRed100,
+          200: coreColors.colorsRed200,
+          300: coreColors.colorsRed300,
+          400: coreColors.colorsRed400,
+          500: coreColors.colorsRed500,
+          600: coreColors.colorsRed600,
+          700: coreColors.colorsRed700,
+          800: coreColors.colorsRed800,
+          900: coreColors.colorsRed900,
         },
-
-        // Red Scale
-        'red': {
-          100: 'var(--color-red-100)',
-          200: 'var(--color-red-200)',
-          300: 'var(--color-red-300)',
-          400: 'var(--color-red-400)',
-          500: 'var(--color-red-500)',
-          600: 'var(--color-red-600)',
-          700: 'var(--color-red-700)',
-          800: 'var(--color-red-800)',
-          900: 'var(--color-red-900)',
+        
+        // 橙色
+        orange: {
+          100: coreColors.colorsOrange100,
+          200: coreColors.colorsOrange200,
+          300: coreColors.colorsOrange300,
+          400: coreColors.colorsOrange400,
+          500: coreColors.colorsOrange500,
+          600: coreColors.colorsOrange600,
+          700: coreColors.colorsOrange700,
+          800: coreColors.colorsOrange800,
+          900: coreColors.colorsOrange900,
         },
-
-        // Orange Scale
-        'orange': {
-          100: 'var(--color-orange-100)',
-          200: 'var(--color-orange-200)',
-          300: 'var(--color-orange-300)',
-          400: 'var(--color-orange-400)',
-          500: 'var(--color-orange-500)',
-          600: 'var(--color-orange-600)',
-          700: 'var(--color-orange-700)',
-          800: 'var(--color-orange-800)',
-          900: 'var(--color-orange-900)',
+        
+        // 黃色
+        yellow: {
+          100: coreColors.colorsYellow100,
+          200: coreColors.colorsYellow200,
+          300: coreColors.colorsYellow300,
+          400: coreColors.colorsYellow400,
+          500: coreColors.colorsYellow500,
+          600: coreColors.colorsYellow600,
+          700: coreColors.colorsYellow700,
+          800: coreColors.colorsYellow800,
+          900: coreColors.colorsYellow900,
         },
-
-        // Yellow Scale
-        'yellow': {
-          100: 'var(--color-yellow-100)',
-          200: 'var(--color-yellow-200)',
-          300: 'var(--color-yellow-300)',
-          400: 'var(--color-yellow-400)',
-          500: 'var(--color-yellow-500)',
-          600: 'var(--color-yellow-600)',
-          700: 'var(--color-yellow-700)',
-          800: 'var(--color-yellow-800)',
-          900: 'var(--color-yellow-900)',
+        
+        // 綠色
+        green: {
+          100: coreColors.colorsGreen100,
+          200: coreColors.colorsGreen200,
+          300: coreColors.colorsGreen300,
+          400: coreColors.colorsGreen400,
+          500: coreColors.colorsGreen500,
+          600: coreColors.colorsGreen600,
+          700: coreColors.colorsGreen700,
+          800: coreColors.colorsGreen800,
+          900: coreColors.colorsGreen900,
         },
-
-        // Green Scale
-        'green': {
-          100: 'var(--color-green-100)',
-          200: 'var(--color-green-200)',
-          300: 'var(--color-green-300)',
-          400: 'var(--color-green-400)',
-          500: 'var(--color-green-500)',
-          600: 'var(--color-green-600)',
-          700: 'var(--color-green-700)',
-          800: 'var(--color-green-800)',
-          900: 'var(--color-green-900)',
+        
+        // Teal
+        teal: {
+          100: coreColors.colorsTeal100,
+          200: coreColors.colorsTeal200,
+          300: coreColors.colorsTeal300,
+          400: coreColors.colorsTeal400,
+          500: coreColors.colorsTeal500,
+          600: coreColors.colorsTeal600,
+          700: coreColors.colorsTeal700,
+          800: coreColors.colorsTeal800,
+          900: coreColors.colorsTeal900,
         },
-
-        // Teal Scale
-        'teal': {
-          100: 'var(--color-teal-100)',
-          200: 'var(--color-teal-200)',
-          300: 'var(--color-teal-300)',
-          400: 'var(--color-teal-400)',
-          500: 'var(--color-teal-500)',
-          600: 'var(--color-teal-600)',
-          700: 'var(--color-teal-700)',
-          800: 'var(--color-teal-800)',
-          900: 'var(--color-teal-900)',
+        
+        // 藍色
+        blue: {
+          100: coreColors.colorsBlue100,
+          200: coreColors.colorsBlue200,
+          300: coreColors.colorsBlue300,
+          400: coreColors.colorsBlue400,
+          500: coreColors.colorsBlue500,
+          600: coreColors.colorsBlue600,
+          700: coreColors.colorsBlue700,
+          800: coreColors.colorsBlue800,
+          900: coreColors.colorsBlue900,
         },
-
-        // Blue Scale
-        'blue': {
-          100: 'var(--color-blue-100)',
-          200: 'var(--color-blue-200)',
-          300: 'var(--color-blue-300)',
-          400: 'var(--color-blue-400)',
-          500: 'var(--color-blue-500)',
-          600: 'var(--color-blue-600)',
-          700: 'var(--color-blue-700)',
-          800: 'var(--color-blue-800)',
-          900: 'var(--color-blue-900)',
+        
+        // Indigo
+        indigo: {
+          100: coreColors.colorsIndigo100,
+          200: coreColors.colorsIndigo200,
+          300: coreColors.colorsIndigo300,
+          400: coreColors.colorsIndigo400,
+          500: coreColors.colorsIndigo500,
+          600: coreColors.colorsIndigo600,
+          700: coreColors.colorsIndigo700,
+          800: coreColors.colorsIndigo800,
+          900: coreColors.colorsIndigo900,
         },
-
-        // Indigo Scale
-        'indigo': {
-          100: 'var(--color-indigo-100)',
-          200: 'var(--color-indigo-200)',
-          300: 'var(--color-indigo-300)',
-          400: 'var(--color-indigo-400)',
-          500: 'var(--color-indigo-500)',
-          600: 'var(--color-indigo-600)',
-          700: 'var(--color-indigo-700)',
-          800: 'var(--color-indigo-800)',
-          900: 'var(--color-indigo-900)',
+        
+        // 紫色
+        purple: {
+          100: coreColors.colorsPurple100,
+          200: coreColors.colorsPurple200,
+          300: coreColors.colorsPurple300,
+          400: coreColors.colorsPurple400,
+          500: coreColors.colorsPurple500,
+          600: coreColors.colorsPurple600,
+          700: coreColors.colorsPurple700,
+          800: coreColors.colorsPurple800,
+          900: coreColors.colorsPurple900,
         },
-
-        // Purple Scale
-        'purple': {
-          100: 'var(--color-purple-100)',
-          200: 'var(--color-purple-200)',
-          300: 'var(--color-purple-300)',
-          400: 'var(--color-purple-400)',
-          500: 'var(--color-purple-500)',
-          600: 'var(--color-purple-600)',
-          700: 'var(--color-purple-700)',
-          800: 'var(--color-purple-800)',
-          900: 'var(--color-purple-900)',
+        
+        // 粉色
+        pink: {
+          100: coreColors.colorsPink100,
+          200: coreColors.colorsPink200,
+          300: coreColors.colorsPink300,
+          400: coreColors.colorsPink400,
+          500: coreColors.colorsPink500,
+          600: coreColors.colorsPink600,
+          700: coreColors.colorsPink700,
+          800: coreColors.colorsPink800,
+          900: coreColors.colorsPink900,
         },
-
-        // Pink Scale
-        'pink': {
-          100: 'var(--color-pink-100)',
-          200: 'var(--color-pink-200)',
-          300: 'var(--color-pink-300)',
-          400: 'var(--color-pink-400)',
-          500: 'var(--color-pink-500)',
-          600: 'var(--color-pink-600)',
-          700: 'var(--color-pink-700)',
-          800: 'var(--color-pink-800)',
-          900: 'var(--color-pink-900)',
+        
+        // Surface (背景層級)
+        surface: {
+          100: coreColors.colorsSurface100,
+          200: coreColors.colorsSurface200,
+          300: coreColors.colorsSurface300,
         },
-
-        // Semantic Colors
-        'bg-page': 'var(--bg-page)',
-        'bg-subtle': 'var(--bg-subtle)',
-        'bg-elevated': 'var(--bg-elevated)',
-        'bg-primary': 'var(--bg-primary)',
-        'bg-primary-hover': 'var(--bg-primary-hover)',
-        'bg-primary-active': 'var(--bg-primary-active)',
-
-        'text-default': 'var(--text-default)',
-        'text-secondary': 'var(--text-secondary)',
-        'text-primary': 'var(--text-primary)',
-        'text-disabled': 'var(--text-disabled)',
-
-        'border-default': 'var(--border-default)',
-        'border-primary': 'var(--border-primary)',
-        'border-primary-hover': 'var(--border-primary-hover)',
-
-        'icon-default': 'var(--icon-default)',
-        'icon-secondary': 'var(--icon-secondary)',
-        'icon-primary': 'var(--icon-primary)',
+        
+        // Border (邊框)
+        border: {
+          100: coreColors.colorsBorder100,
+        },
+        
+        // ==========================================
+        // 語義化顏色 (Semantic Tokens)
+        // 使用方式: bg-page, text-default, border-primary
+        // ==========================================
+        
+        // 背景色 (bg-*)
+        bg: {
+          page: semanticTokens.backgroundPage,
+          primary: semanticTokens.backgroundPrimary,
+          'primary-hover': semanticTokens.backgroundPrimaryHover,
+          'primary-active': semanticTokens.backgroundPrimaryActive,
+          'primary-muted': semanticTokens.backgroundPrimaryMuted,
+          'gray-muted': semanticTokens.backgroundGrayMuted,
+          'yellow-muted': semanticTokens.backgroundYellowMuted,
+          transparent: semanticTokens.backgroundTransparent,
+          subtle: semanticTokens.backgroundSubtle,
+          elevated: semanticTokens.backgroundElevated,
+        },
+        
+        // 文字色 (text-*)
+        text: {
+          default: semanticTokens.textDefault,
+          secondary: semanticTokens.textSecondary,
+          primary: semanticTokens.textPrimary,
+          disabled: semanticTokens.textDisabled,
+        },
+        
+        // 圖標色 (text-icon-* 或直接用 text-*)
+        icon: {
+          default: semanticTokens.iconDefault,
+          secondary: semanticTokens.iconSecondary,
+          'secondary-hover': semanticTokens.iconSecondaryHover,
+          primary: semanticTokens.iconPrimary,
+          'primary-hover': semanticTokens.iconPrimaryHover,
+          disabled: semanticTokens.iconDisabled,
+          visible: semanticTokens.iconVisible,
+          'visible-hover': semanticTokens.iconVisibleHover,
+        },
+        
+        // 邊框色 (border-*)
+        border: {
+          default: semanticTokens.borderDefault,
+          primary: semanticTokens.borderPrimary,
+          'primary-hover': semanticTokens.borderPrimaryHover,
+          'primary-active': semanticTokens.borderPrimaryActive,
+          'secondary-focus': semanticTokens.borderSecondaryFocus,
+        },
+        
+        // ==========================================
+        // 組件專用顏色 (Component Tokens)
+        // ==========================================
+        
+        // 按鈕 - 實心 (btn-solid)
+        'btn-solid': {
+          DEFAULT: componentTokens.buttonSolidBackgroundDefault,
+          hover: componentTokens.buttonSolidBackgroundHover,
+          active: componentTokens.buttonSolidBackgroundActive,
+          disabled: componentTokens.buttonSolidBackgroundDisabled,
+          text: componentTokens.buttonSolidTextDefault,
+          'text-disabled': componentTokens.buttonSolidTextDisabled,
+          icon: componentTokens.buttonSolidIconDefault,
+          'icon-disabled': componentTokens.buttonSolidIconDisabled,
+        },
+        
+        // 按鈕 - 線框 (btn-outline)
+        'btn-outline': {
+          active: componentTokens.buttonOutlineBackgroundActive,
+          text: componentTokens.buttonOutlineTextDefault,
+          'text-disabled': componentTokens.buttonOutlineTextDisabled,
+          border: componentTokens.buttonOutlineBorderDefault,
+          'border-hover': componentTokens.buttonOutlineBorderHover,
+          'border-disabled': componentTokens.buttonOutlineBorderDisabled,
+          icon: componentTokens.buttonOutlineIconDefault,
+          'icon-disabled': componentTokens.buttonOutlineIconDisabled,
+        },
+        
+        // 操作按鈕 - 編輯
+        'action-edit': {
+          'bg-active': componentTokens.actionEditBackgroundActive,
+          icon: componentTokens.actionEditIconDefault,
+          'icon-interactive': componentTokens.actionEditIconInteractive,
+        },
+        
+        // 操作按鈕 - 刪除
+        'action-delete': {
+          'bg-active': componentTokens.actionDeleteBackgroundActive,
+          icon: componentTokens.actionDeleteIconDefault,
+          'icon-interactive': componentTokens.actionDeleteIconInteractive,
+        },
+        
+        // 操作按鈕 - 顯示
+        'action-show': {
+          'bg-active': componentTokens.actionShowBackgroundActive,
+          icon: componentTokens.actionShowIconDefault,
+          'icon-interactive': componentTokens.actionShowIconInteractive,
+        },
+        
+        // 操作按鈕 - 隱藏
+        'action-hide': {
+          'bg-active': componentTokens.actionHideBackgroundActive,
+          icon: componentTokens.actionHideIconDefault,
+          'icon-interactive': componentTokens.actionHideIconInteractive,
+        },
+        
+        // 選單項目
+        'menu-item': {
+          bg: componentTokens.menuItemBackgroundDefault,
+          'bg-hover': componentTokens.menuItemBackgroundHover,
+          'bg-active': componentTokens.menuItemBackgroundActive,
+          text: componentTokens.menuItemTextDefault,
+          'text-interactive': componentTokens.menuItemTextInteractive,
+          icon: componentTokens.menuItemIconDefault,
+          'icon-interactive': componentTokens.menuItemIconInteractive,
+        },
+        
+        // Header
+        header: {
+          bg: componentTokens.headerContainerBackground,
+          'logo-text': componentTokens.headerLogoText,
+          'logo-icon': componentTokens.headerLogoIcon,
+          'action-icon': componentTokens.headerActionIconDefault,
+          'action-icon-hover': componentTokens.headerActionIconHover,
+          'action-icon-active': componentTokens.headerActionIconActive,
+          'action-bg-active': componentTokens.headerActionBackgroundActive,
+          'user-name': componentTokens.headerUserName,
+          'user-role': componentTokens.headerUserRole,
+        },
+        
+        // 分頁器
+        pagination: {
+          bg: componentTokens.paginationBackgroundDefault,
+          'bg-hover': componentTokens.paginationBackgroundHover,
+          'bg-active': componentTokens.paginationBackgroundActive,
+          text: componentTokens.paginationTextDefault,
+          'text-interactive': componentTokens.paginationTextInteractive,
+          'text-disabled': componentTokens.paginationTextDisabled,
+          border: componentTokens.paginationBorderDefault,
+        },
+        
+        // 輸入框
+        input: {
+          border: componentTokens.inputBorderDefault,
+          'border-focus': componentTokens.inputBorderFocus,
+          text: componentTokens.inputTextDefault,
+          'text-focus': componentTokens.inputTextFocus,
+          bg: componentTokens.inputBackgroundDefault,
+        },
+        
+        // 下拉選單
+        dropdown: {
+          border: componentTokens.dropdownBorderDefault,
+          'border-focus': componentTokens.dropdownBorderFocus,
+          text: componentTokens.dropdownTextDefault,
+          bg: componentTokens.dropdownBackgroundDefault,
+          'bg-focus': componentTokens.dropdownBackgroundFocus,
+        },
       },
-
+      
+      // ==========================================
+      // 間距系統 (Spacing)
+      // ==========================================
       spacing: {
-        '100': 'var(--spacing-100)',
-        '200': 'var(--spacing-200)',
-        '300': 'var(--spacing-300)',
-        '400': 'var(--spacing-400)',
-        '500': 'var(--spacing-500)',
-        '600': 'var(--spacing-600)',
-        '700': 'var(--spacing-700)',
-        '800': 'var(--spacing-800)',
-        '900': 'var(--spacing-900)',
-        '1000': 'var(--spacing-1000)',
+        // 100 系列 = 4px 的倍數
+        '100': '4px',
+        '200': '8px',
+        '300': '12px',
+        '400': '16px',
+        '500': '20px',
+        '600': '24px',
+        '700': '28px',
+        '800': '32px',
+        '900': '36px',
+        '1000': '40px',
       },
-
-      gap: {
-        'sm': 'var(--gap-sm)',
-        'md': 'var(--gap-md)',
-        'lg': 'var(--gap-lg)',
-        'xl': 'var(--gap-xl)',
-        '2xl': 'var(--gap-2xl)',
-      },
-
-      padding: {
-        'sm': 'var(--padding-sm)',
-        'md': 'var(--padding-md)',
-        'lg': 'var(--padding-lg)',
-        'xl': 'var(--padding-xl)',
-        '2xl': 'var(--padding-2xl)',
-        '3xl': 'var(--padding-3xl)',
-      },
-
-      borderRadius: {
-        'none': 'var(--radius-none)',
-        'sm': 'var(--radius-sm)',
-        'lg': 'var(--radius-lg)',
-        'xl': 'var(--radius-xl)',
-        '2xl': 'var(--radius-2xl)',
-        'full': 'var(--radius-full)',
-      },
-
+      
+      // ==========================================
+      // 字體大小 (Typography)
+      // ==========================================
       fontSize: {
-        'h1': 'var(--font-size-h1)',
-        'h2': 'var(--font-size-h2)',
-        'h3': 'var(--font-size-h3)',
-        'body-l': 'var(--font-size-body-l)',
-        'body-m': 'var(--font-size-body-m)',
-        'body-s': 'var(--font-size-body-s)',
-        'body-xs': 'var(--font-size-body-xs)',
+        // 標題
+        'h1': ['32px', { lineHeight: '40px', fontWeight: '700' }],
+        'h2': ['28px', { lineHeight: '36px', fontWeight: '700' }],
+        'h3': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+        'h4': ['20px', { lineHeight: '28px', fontWeight: '600' }],
+        'h5': ['18px', { lineHeight: '24px', fontWeight: '600' }],
+        
+        // 正文
+        'body-l': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-m': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+        'body-s': ['12px', { lineHeight: '16px', fontWeight: '400' }],
+        
+        // 標籤
+        'label': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'caption': ['12px', { lineHeight: '16px', fontWeight: '400' }],
       },
-
-      fontWeight: {
-        'regular': 'var(--font-weight-regular)',
-        'medium': 'var(--font-weight-medium)',
-        'bold': 'var(--font-weight-bold)',
-      },
-
-      lineHeight: {
-        'flat': 'var(--line-height-flat)',
-        'tight': 'var(--line-height-tight)',
-        'comfortable': 'var(--line-height-comfortable)',
-      },
-
-      letterSpacing: {
-        'tighter': 'var(--letter-spacing-tighter)',
-        'tight': 'var(--letter-spacing-tight)',
-        'normal': 'var(--letter-spacing-normal)',
-        'relaxed': 'var(--letter-spacing-relaxed)',
-        'loose': 'var(--letter-spacing-loose)',
-        'looser': 'var(--letter-spacing-looser)',
-      },
-
-      borderWidth: {
-        'none': 'var(--border-width-none)',
-        'thin': 'var(--border-width-100)',
-        'medium': 'var(--border-width-200)',
-        'thick': 'var(--border-width-300)',
-      },
-
-      opacity: {
-        '10': 'var(--opacity-10)',
-        '50': 'var(--opacity-50)',
-        '90': 'var(--opacity-90)',
-      },
-
-      fontFamily: {
-        'sans': 'var(--font-family-sans)',
+      
+      // ==========================================
+      // 圓角 (Border Radius)
+      // ==========================================
+      borderRadius: {
+        'none': '0',
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '8px',
+        'lg': '12px',
+        'xl': '16px',
+        'full': '9999px',
       },
     },
   },
   plugins: [],
-} 
+}
