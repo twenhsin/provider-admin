@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ==============================================
+   Design Tokens - Auto-generated from tokens-map.json
+   ============================================== */
+
+/* === CORE TOKENS === */
+:root {
+
+  /* Core Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-white-50: #FFFFFF80;
+  --color-transparent: #00000000;
+  --color-brand: #d2bb6c;
+  --color-surface-100: #111722;
+  --color-surface-200: #151C2B;
+  --color-surface-300: #192233;
+  --color-gray-100: #f7fafc;
+  --color-gray-200: #edf2f7;
+  --color-gray-300: #e2e8f0;
+  --color-gray-400: #cbd5e0;
+  --color-gray-500: #a0aec0;
+  --color-gray-600: #718096;
+  --color-gray-700: #4a5568;
+  --color-gray-800: #2d3748;
+  --color-gray-900: #1a202c;
+  --color-gray-500-10: rgba(113,128,150,0.1);
+  --color-gray-500-20: rgba(113,128,150,0.2);
+  --color-gray-500-50: rgba(113,128,150,0.5);
+  --color-gray-500-90: rgba(113,128,150,0.9);
+  --color-red-100: #F8EAEA;
+  --color-red-200: #F0CACA;
+  --color-red-300: #E09A9A;
+  --color-red-400: #df3f3f;
+  --color-red-500: #C51616;
+  --color-red-600: #A81212;
+  --color-red-700: #8F0F0F;
+  --color-red-800: #740C0C;
+  --color-red-900: #830201;
+  --color-red-500-20: rgba(197,22,22,0.2);
+  --color-red-500-50: rgba(197,22,22,0.5);
+  --color-orange-100: #fffaf0;
+  --color-orange-200: #feebc8;
+  --color-orange-300: #fbd38d;
+  --color-orange-400: #f6ad55;
+  --color-orange-500: #ed8936;
+  --color-orange-600: #dd6b20;
+  --color-orange-700: #c05621;
+  --color-orange-800: #9c4221;
+  --color-orange-900: #7b341e;
+  --color-yellow-100: #fffff0;
+  --color-yellow-200: #fefcbf;
+  --color-yellow-300: #faf089;
+  --color-yellow-400: #f6e05e;
+  --color-yellow-500: #ecc94b;
+  --color-yellow-600: #d69e2e;
+  --color-yellow-700: #b7791f;
+  --color-yellow-800: #975a16;
+  --color-yellow-900: #744210;
+  --color-yellow-500-20: rgba(236, 201, 75, 0.2);
+  --color-green-100: #f0fff4;
+  --color-green-200: #c6f6d5;
+  --color-green-300: #9ae6b4;
+  --color-green-400: #68d391;
+  --color-green-500: #48bb78;
+  --color-green-600: #38a169;
+  --color-green-700: #2f855a;
+  --color-green-800: #276749;
+  --color-green-900: #22543d;
+  --color-green-500-10: rgba(104,211,145,0.1);
+  --color-green-500-20: rgba(104,211,145,0.2);
+  --color-green-500-50: rgba(104,211,145,0.5);
+  --color-teal-100: #e6fffa;
+  --color-teal-200: #b2f5ea;
+  --color-teal-300: #81e6d9;
+  --color-teal-400: #4fd1c5;
+  --color-teal-500: #38b2ac;
+  --color-teal-600: #319795;
+  --color-teal-700: #2c7a7b;
+  --color-teal-800: #285e61;
+  --color-teal-900: #234e52;
+  --color-blue-100: #ebf8ff;
+  --color-blue-200: #bee3f8;
+  --color-blue-300: #90cdf4;
+  --color-blue-400: #63b3ed;
+  --color-blue-500: #4299e1;
+  --color-blue-600: #3182ce;
+  --color-blue-700: #2b6cb0;
+  --color-blue-800: #2c5282;
+  --color-blue-900: #2a4365;
+  --color-indigo-100: #ebf4ff;
+  --color-indigo-200: #c3dafe;
+  --color-indigo-300: #a3bffa;
+  --color-indigo-400: #7f9cf5;
+  --color-indigo-500: #667eea;
+  --color-indigo-600: #5a67d8;
+  --color-indigo-700: #4c51bf;
+  --color-indigo-800: #434190;
+  --color-indigo-900: #3c366b;
+  --color-purple-100: #faf5ff;
+  --color-purple-200: #e9d8fd;
+  --color-purple-300: #d6bcfa;
+  --color-purple-400: #b794f4;
+  --color-purple-500: #9f7aea;
+  --color-purple-600: #805ad5;
+  --color-purple-700: #6b46c1;
+  --color-purple-800: #553c9a;
+  --color-purple-900: #44337a;
+  --color-pink-100: #fff5f7;
+  --color-pink-200: #fed7e2;
+  --color-pink-300: #fbb6ce;
+  --color-pink-400: #f687b3;
+  --color-pink-500: #ed64a6;
+  --color-pink-600: #d53f8c;
+  --color-pink-700: #b83280;
+  --color-pink-800: #97266d;
+  --color-pink-900: #702459;
+  --color-border-100: #324467;
+
+  /* Core Spacing */
+  --spacing-100: 4px;
+  --spacing-200: 8px;
+  --spacing-300: 12px;
+  --spacing-400: 16px;
+  --spacing-500: 20px;
+  --spacing-600: 24px;
+  --spacing-700: 32px;
+  --spacing-800: 40px;
+  --spacing-900: 48px;
+  --spacing-1000: 64px;
+  --spacing-multi-value: 8px 64px;
+  --spacing-scale: 2;
+
+  /* Core Border Radius */
+  --radius-100: 4px;
+  --radius-200: 8px;
+  --radius-300: 12px;
+  --radius-400: 16px;
+  --radius-full: 9999px;
+  --radius-none: 0;
+  --radius-multi-value: 4 8;
+
+  /* Core Font Sizes */
+  --font-size-100: 12px;
+  --font-size-200: 14px;
+  --font-size-300: 16px;
+  --font-size-400: 18px;
+  --font-size-500: 20px;
+  --font-size-600: 24px;
+  --font-size-700: 32px;
+  --font-size-800: 40px;
+
+  /* Core Font Weights */
+  --font-weight-400: 400;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+
+  /* Core Line Heights */
+  --line-height-100: 100%;
+  --line-height-120: 120%;
+  --line-height-150: 150%;
+  --line-height-175: 175%;
+
+  /* Core Letter Spacing */
+  --letter-spacing-100: -0.02em;
+  --letter-spacing-200: -0.01em;
+  --letter-spacing-300: 0em;
+  --letter-spacing-400: 0.01em;
+  --letter-spacing-500: 0.025em;
+  --letter-spacing-600: 0.05em;
+  --letter-spacing-700: 0.1em;
+
+  /* Core Border Width */
+  --border-width-100: 1px;
+  --border-width-200: 2px;
+  --border-width-300: 3px;
+  --border-width-400: 4px;
+  --border-width-none: 0;
+
+  /* Core Opacity */
+  --opacity-10: 10%;
+  --opacity-50: 50%;
+  --opacity-90: 90%;
+
+  /* Core Font Families */
+  --font-family-sans: Inter, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+  /* Core Dimensions */
+  --dimension-100: 4px;
+  --dimension-200: 8px;
+  --dimension-300: 12px;
+  --dimension-400: 16px;
+  --dimension-500: 20px;
+  --dimension-600: 24px;
+  --dimension-700: 32px;
+  --dimension-800: 40px;
+  --dimension-900: 48px;
+  --dimension-1000: 64px;
+  --dimension-scale: 2px;
+}
+
+/* === SEMANTIC TOKENS === */
+:root {
+
+  /* Semantic Backgrounds */
+  --bg-page: #111722;
+  --bg-subtle: #151C2B;
+  --bg-elevated: #192233;
+  --bg-primary: #C51616;
+  --bg-primary-hover: #df3f3f;
+  --bg-primary-active: #8F0F0F;
+  --bg-primary-muted: rgba(197,22,22,0.2);
+  --bg-gray-muted: rgba(113,128,150,0.2);
+  --bg-yellow-muted: rgba(236, 201, 75, 0.2);
+  --bg-transparent: #00000000;
+
+  /* Semantic Text Colors */
+  --text-default: #ffffff;
+  --text-secondary: #a0aec0;
+  --text-primary: #C51616;
+  --text-disabled: #FFFFFF80;
+
+  /* Semantic Borders */
+  --border-primary: #C51616;
+  --border-primary-hover: #df3f3f;
+  --border-primary-active: #8F0F0F;
+  --border-default: #324467;
+  --border-secondary-focus: rgba(113,128,150,0.5);
+
+  /* Semantic Icon Colors */
+  --icon-default: #ffffff;
+  --icon-secondary: #a0aec0;
+  --icon-primary: #C51616;
+  --icon-primary-hover: #df3f3f;
+  --icon-disabled: rgba(113,128,150,0.5);
+  --icon-visible: #ecc94b;
+  --icon-visible-hover: #f6e05e;
+  --icon-secondary-hover: #cbd5e0;
+
+  /* Semantic Border Radius */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  /* Semantic Spacing */
+  --gap-sm: 4px;
+  --gap-md: 8px;
+  --gap-lg: 12px;
+  --gap-xl: 16px;
+  --gap-2xl: 20px;
+  --padding-sm: 4px;
+  --padding-md: 8px;
+  --padding-lg: 12px;
+  --padding-xl: 16px;
+  --padding-2xl: 20px;
+  --padding-3xl: 24px;
+
+  /* Semantic Font Sizes */
+  --font-size-h1: 32px;
+  --font-size-h2: 24px;
+  --font-size-h3: 20px;
+  --font-size-body-l: 18px;
+  --font-size-body-m: 16px;
+  --font-size-body-s: 14px;
+  --font-size-body-xs: 12px;
+
+  /* Semantic Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+
+  /* Semantic Line Heights */
+  --line-height-flat: 100%;
+  --line-height-tight: 120%;
+  --line-height-comfortable: 150%;
+
+  /* Semantic Letter Spacing */
+  --letter-spacing-tighter: -0.02em;
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-relaxed: 0.01em;
+  --letter-spacing-loose: 0.025em;
+  --letter-spacing-looser: 0.05em;
+  --letter-spacing-looset: 0.1em;
+}
+
+/* === COMPONENT TOKENS === */
+:root {
+
+  /* Button - Solid */
+  --btn-solid-background-default: #C51616;
+  --btn-solid-background-hover: #df3f3f;
+  --btn-solid-background-active: #8F0F0F;
+  --btn-solid-background-disabled: rgba(113,128,150,0.2);
+  --btn-solid-text-default: #ffffff;
+  --btn-solid-text-disabled: #FFFFFF80;
+  --btn-solid-icon-default: #ffffff;
+  --btn-solid-icon-disabled: #FFFFFF80;
+
+  /* Button - Outline */
+  --btn-outline-background-active: #8F0F0F;
+  --btn-outline-text-default: #ffffff;
+  --btn-outline-text-disabled: #FFFFFF80;
+  --btn-outline-border-default: #C51616;
+  --btn-outline-border-hover: #df3f3f;
+  --btn-outline-border-disabled: #324467;
+  --btn-outline-icon-default: #ffffff;
+  --btn-outline-icon-disabled: #FFFFFF80;
+
+  /* Input */
+  --input-border-default: #324467;
+  --input-border-focus: rgba(113,128,150,0.5);
+  --input-text-default: #a0aec0;
+  --input-text-focus: #ffffff;
+  --input-background-default: #111722;
+
+  /* Component Border Radius */
+  --component-radius-interactive: 8;
+  --component-radius-container: 12px;
+}
