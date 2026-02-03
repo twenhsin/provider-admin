@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>按鈕測試 - 正確數值</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #111722;
+      color: #ffffff;
+      padding: 48px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: #ffffff;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .section {
+      background-color: #192233;
+      border: 1px solid #324467;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .info {
+      background-color: #151c2b;
+      border: 1px solid #324467;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #a0aec0;
+    }
+
+    .success {
+      background-color: #c5161633;
+      border: 2px solid #c51616;
+      color: #ffffff;
+    }
+
+    /* ========================================
+       按鈕樣式 - ✅ 正確數值
+       ======================================== */
+    
+    /* Solid Button */
+    .btn-solid {
+      /* 佈局 */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;              /* ✅ spacing/gap/s - 4px icon 與文字間距 */
+      
+      /* 尺寸 */
+      padding-left: 16px;    /* ✅ spacing/padding/xl - 16px 左右 padding */
+      padding-right: 16px;
+      height: 40px;          /* ✅ dimension/height/md - 40px 高度 */
+      
+      /* 樣式 */
+      background-color: #c51616;  /* button/solid/background/primary */
+      color: #ffffff;             /* button/solid/text/default */
+      border: none;
+      border-radius: 8px;         /* borderRadius/interactive */
+      
+      /* 文字 */
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;            /* ✅ typography/body/s - 14px 文字 */
+      font-weight: 400;
+      line-height: 20px;
+      
+      /* 互動 */
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-solid:hover {
+      background-color: #df3f3f;  /* button/solid/background/hover */
+    }
+
+    .btn-solid:active {
+      background-color: #8f0f0f;  /* button/solid/background/active */
+    }
+
+    .btn-solid:disabled {
+      background-color: #71809633; /* button/solid/background/disabled */
+      color: #ffffff7f;            /* button/solid/text/disabled */
+      cursor: not-allowed;
+    }
+
+    /* Icon 樣式 */
+    .btn-solid svg,
+    .btn-solid .icon {
+      width: 24px;
+      height: 24px;
+      color: #ffffff;  /* button/solid/icon/default */
+      flex-shrink: 0;
+    }
+
+    .btn-solid:disabled svg,
+    .btn-solid:disabled .icon {
+      color: #ffffff7f;  /* button/solid/icon/disabled */
+    }
+
+    /* Outline Button */
+    .btn-outline {
+      /* 佈局 */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;              /* ✅ 4px */
+      
+      /* 尺寸 */
+      padding-left: 16px;    /* ✅ 16px */
+      padding-right: 16px;
+      height: 40px;          /* ✅ 40px */
+      
+      /* 樣式 */
+      background-color: transparent;
+      color: #ffffff;               /* button/outline/text/default */
+      border: 2px solid #c51616;    /* button/outline/border/default */
+      border-radius: 8px;
+      
+      /* 文字 */
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;       /* ✅ 14px */
+      font-weight: 400;
+      line-height: 20px;
+      
+      /* 互動 */
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: #df3f3f;  /* button/outline/border/hover */
+    }
+
+    .btn-outline:active {
+      background-color: #8f0f0f;  /* button/outline/background/active */
+    }
+
+    .btn-outline:disabled {
+      border-color: #324467;      /* button/outline/border/disabled */
+      color: #ffffff7f;           /* button/outline/text/disabled */
+      cursor: not-allowed;
+    }
+
+    /* 按鈕容器 */
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* 檢查項目 */
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .checklist li::before {
+      content: '✓';
+      color: #48bb78;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    code {
+      background-color: #111722;
+      color: #c51616;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .value-display {
+      display: inline-block;
+      background: #111722;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #48bb78;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✅ 按鈕測試 - 正確數值版本</h1>
+    <p style="color: #a0aec0; margin-bottom: 32px;">
+      所有數值已修正為你提供的正確規格
+    </p>
+
+    <!-- Solid 按鈕 -->
+    <div class="section">
+      <h2>Solid 按鈕（實心）</h2>
+      <p style="color: #a0aec0; font-size: 12px; margin-bottom: 16px;">
+        背景色: <code>#c51616</code>
+      </p>
+
+      <div class="button-group">
+        <button class="btn-solid">
+          純文字按鈕
+        </button>
+
+        <button class="btn-solid">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          帶圖示
+        </button>
+
+        <button class="btn-solid" disabled>
+          已停用
+        </button>
+      </div>
+
+      <div class="info success">
+        <strong>✅ 正確數值確認:</strong><br><br>
+        <strong>尺寸 & 間距:</strong><br>
+        • 按鈕高度: <span class="value-display">40px</span> (dimension/height/md)<br>
+        • 左右 Padding: <span class="value-display">16px</span> (spacing/padding/xl)<br>
+        • Icon-文字間距: <span class="value-display">4px</span> (spacing/gap/s)<br>
+        • 圓角: <span class="value-display">8px</span> (borderRadius/interactive)<br>
+        <br>
+        <strong>文字:</strong><br>
+        • 字級: <span class="value-display">14px</span> (typography/body/s/regular)<br>
+        • 字重: <span class="value-display">400</span> (regular)<br>
+        • 行高: <span class="value-display">20px</span><br>
+        <br>
+        <strong>顏色:</strong><br>
+        • 背景: <span class="value-display">#c51616</span> (buttonSolidBackgroundDefault)<br>
+        • Hover: <span class="value-display">#df3f3f</span> (buttonSolidBackgroundHover)<br>
+        • Active: <span class="value-display">#8f0f0f</span> (buttonSolidBackgroundActive)<br>
+      </div>
+    </div>
+
+    <!-- Outline 按鈕 -->
+    <div class="section">
+      <h2>Outline 按鈕（線框）</h2>
+      <p style="color: #a0aec0; font-size: 12px; margin-bottom: 16px;">
+        邊框色: <code>#c51616</code>
+      </p>
+
+      <div class="button-group">
+        <button class="btn-outline">
+          純文字按鈕
+        </button>
+
+        <button class="btn-outline">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          帶圖示
+        </button>
+
+        <button class="btn-outline" disabled>
+          已停用
+        </button>
+      </div>
+
+      <div class="info success">
+        <strong>✅ 與 Solid 相同的尺寸規格</strong><br><br>
+        唯一差異:<br>
+        • 背景透明<br>
+        • 邊框: <span class="value-display">2px solid #c51616</span><br>
+      </div>
+    </div>
+
+    <!-- 檢查清單 -->
+    <div class="section" style="border: 2px solid #48bb78;">
+      <h2 style="color: #48bb78;">📋 正確數值檢查清單</h2>
+      <ul class="checklist">
+        <li>按鈕高度是 40px（不是 36px 或其他）</li>
+        <li>左右 padding 是 16px（不是 24px）</li>
+        <li>Icon 和文字間距是 4px（不是 8px）</li>
+        <li>文字大小是 14px（不是 12px）</li>
+        <li>圓角是 8px</li>
+        <li>Solid 按鈕有紅色背景 (#c51616)</li>
+        <li>Outline 按鈕有紅色邊框 (#c51616)</li>
+        <li>圖示和文字是水平排列</li>
+        <li>Hover 時顏色會變淺 (#df3f3f)</li>
+        <li>Active 時顏色會變深 (#8f0f0f)</li>
+      </ul>
+
+      <div class="info" style="margin-top: 24px; background: #111722;">
+        <strong>💡 下一步：</strong><br><br>
+        如果這個 HTML 顯示正確，請：<br>
+        1. 替換 <code>tailwind.config.cjs</code> 為 <code>tailwind.config.correct.cjs</code><br>
+        2. 替換 <code>main.css</code> 為 <code>main.correct.css</code><br>
+        3. 重新啟動開發伺服器<br>
+        4. 使用 <code>.btn-solid</code> 和 <code>.btn-outline</code> classes
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 點擊測試
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (!this.disabled) {
+          console.log('✅ 按鈕被點擊:', this.textContent.trim());
+          console.log('高度:', window.getComputedStyle(this).height);
+          console.log('Padding:', window.getComputedStyle(this).paddingLeft, window.getComputedStyle(this).paddingRight);
+          console.log('字級:', window.getComputedStyle(this).fontSize);
+        }
+      });
+    });
+
+    // 顯示實際計算的樣式值
+    window.addEventListener('load', () => {
+      const btn = document.querySelector('.btn-solid');
+      const styles = window.getComputedStyle(btn);
+      console.log('=== 按鈕實際樣式 ===');
+      console.log('高度:', styles.height);
+      console.log('Padding-left:', styles.paddingLeft);
+      console.log('Padding-right:', styles.paddingRight);
+      console.log('字級:', styles.fontSize);
+      console.log('背景色:', styles.backgroundColor);
+      console.log('圓角:', styles.borderRadius);
+    });
+  </script>
+</body>
+</html>

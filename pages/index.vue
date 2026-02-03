@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import BaseButton from '~/app/components/BaseButton.vue'
-import IconCheck from '~/app/assets/icons/IconCheck.vue'
-import IconClose from '~/app/assets/icons/IconClose.vue'
-import IconPlus from '~/app/assets/icons/IconPlus.vue'
+import IconAdd from '~/app/assets/icons/IconAdd.vue'
 
 const handleClick = (action: string) => {
   console.log(`按鈕點擊: ${action}`)
@@ -10,332 +7,185 @@ const handleClick = (action: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-bg-page p-600">
-    <div class="max-w-6xl mx-auto space-y-900">
+  <div class="min-h-screen bg-page p-900">
+    <div class="max-w-3xl mx-auto">
       <!-- 標題 -->
-      <header class="text-center space-y-300">
-        <h1 class="text-h1 font-bold text-text-default">
-          BaseButton 組件展示
-        </h1>
-        <p class="text-body-m text-text-secondary">
-          驗證 tokens.json 設計系統 - 所有顏色與間距皆來自 Design Tokens
+      <h1 class="text-h1 text-default mb-700">
+        ✅ 按鈕測試 - 正確數值版本
+      </h1>
+      <p class="text-secondary mb-700">
+        所有數值已修正為正確規格
+      </p>
+
+      <!-- Solid 按鈕展示 -->
+      <section class="card mb-600">
+        <h2 class="text-h3 text-default mb-400">
+          Solid 按鈕（實心）
+        </h2>
+        <p class="text-caption text-secondary mb-400">
+          背景色: <code class="px-100 py-50 bg-page rounded text-primary">#c51616</code>
         </p>
-      </header>
 
-      <!-- 主要展示區 -->
-      <div class="space-y-800">
-        <!-- Solid 按鈕展示 -->
-        <section class="bg-bg-elevated rounded-xl p-600 space-y-400">
-          <div>
-            <h2 class="text-h2 font-bold text-text-default mb-200">
-              Solid 按鈕（主要操作）
-            </h2>
-            <p class="text-body-s text-text-secondary">
-              使用 <code class="px-100 py-sm bg-bg-subtle rounded text-text-primary">buttonSolidBackgroundDefault</code> (#c51616)
-            </p>
-          </div>
+        <!-- 按鈕範例 -->
+        <div class="flex flex-wrap gap-300 mb-400">
+          <button class="btn-solid" @click="handleClick('純文字按鈕')">
+            純文字按鈕
+          </button>
 
-          <div class="flex flex-wrap gap-md items-center">
-            <!-- 左側 Icon + 文字 -->
-            <BaseButton variant="solid" @click="handleClick('確認')">
-              <template #leftIcon>
-                <IconCheck />
-              </template>
-              確認
-            </BaseButton>
+          <button class="btn-solid" @click="handleClick('帶圖示')">
+            <IconAdd />
+            帶圖示
+          </button>
 
-            <!-- 純文字 -->
-            <BaseButton variant="solid" @click="handleClick('儲存')">
-              儲存
-            </BaseButton>
+          <button class="btn-solid" disabled>
+            已停用
+          </button>
+        </div>
 
-            <!-- 右側 Icon -->
-            <BaseButton variant="solid" @click="handleClick('新增')">
-              新增
-              <template #rightIcon>
-                <IconPlus />
-              </template>
-            </BaseButton>
+        <!-- 規格說明 -->
+        <div class="bg-primary-muted border-2 border-primary rounded-lg p-400">
+          <p class="text-body-m text-default font-medium mb-300">
+            ✅ 正確數值確認:
+          </p>
 
-            <!-- 純 Icon -->
-            <BaseButton variant="solid" @click="handleClick('純圖標')">
-              <template #leftIcon>
-                <IconCheck />
-              </template>
-            </BaseButton>
+          <div class="space-y-200 text-caption text-secondary">
+            <div>
+              <strong class="text-default">尺寸 & 間距:</strong>
+            </div>
+            <ul class="space-y-100 ml-400">
+              <li>• 按鈕高度: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">40px</code> (dimension/height/md)</li>
+              <li>• 左右 Padding: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">16px</code> (spacing/padding/xl)</li>
+              <li>• Icon-文字間距: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">4px</code> (spacing/gap/s)</li>
+              <li>• 圓角: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">8px</code> (borderRadius/interactive)</li>
+            </ul>
 
-            <!-- Disabled -->
-            <BaseButton variant="solid" disabled>
-              <template #leftIcon>
-                <IconCheck />
-              </template>
-              已停用
-            </BaseButton>
-          </div>
+            <div class="mt-300">
+              <strong class="text-default">文字:</strong>
+            </div>
+            <ul class="space-y-100 ml-400">
+              <li>• 字級: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">14px</code> (typography/body/s/regular)</li>
+              <li>• 字重: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">400</code> (regular)</li>
+              <li>• 行高: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">20px</code></li>
+            </ul>
 
-          <!-- Token 說明 -->
-          <div class="mt-400 p-400 bg-bg-subtle rounded-lg border border-border-default">
-            <h3 class="text-body-m font-medium text-text-default mb-200">
-              🎨 使用的 Component Tokens:
-            </h3>
-            <ul class="text-body-s text-text-secondary space-y-100">
-              <li><code>buttonSolidBackgroundDefault</code>: #c51616 (預設背景)</li>
-              <li><code>buttonSolidBackgroundHover</code>: #df3f3f (Hover 狀態)</li>
-              <li><code>buttonSolidBackgroundActive</code>: #8f0f0f (Active 狀態)</li>
-              <li><code>buttonSolidBackgroundDisabled</code>: #71809633 (停用狀態)</li>
-              <li><code>buttonSolidTextDefault</code>: #ffffff (文字顏色)</li>
+            <div class="mt-300">
+              <strong class="text-default">顏色:</strong>
+            </div>
+            <ul class="space-y-100 ml-400">
+              <li>• 背景: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">#c51616</code> (buttonSolidBackgroundDefault)</li>
+              <li>• Hover: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">#df3f3f</code> (buttonSolidBackgroundHover)</li>
+              <li>• Active: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">#8f0f0f</code> (buttonSolidBackgroundActive)</li>
             </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Outline 按鈕展示 -->
-        <section class="bg-bg-elevated rounded-xl p-600 space-y-400">
-          <div>
-            <h2 class="text-h2 font-bold text-text-default mb-200">
-              Outline 按鈕（次要操作）
-            </h2>
-            <p class="text-body-s text-text-secondary">
-              使用 <code class="px-100 py-sm bg-bg-subtle rounded text-text-primary">buttonOutlineBorderDefault</code> (#c51616)
-            </p>
-          </div>
+      <!-- Outline 按鈕展示 -->
+      <section class="card mb-600">
+        <h2 class="text-h3 text-default mb-400">
+          Outline 按鈕（線框）
+        </h2>
+        <p class="text-caption text-secondary mb-400">
+          邊框色: <code class="px-100 py-50 bg-page rounded text-primary">#c51616</code>
+        </p>
 
-          <div class="flex flex-wrap gap-md items-center">
-            <!-- 純文字 -->
-            <BaseButton variant="outline" @click="handleClick('取消')">
-              取消
-            </BaseButton>
+        <!-- 按鈕範例 -->
+        <div class="flex flex-wrap gap-300 mb-400">
+          <button class="btn-outline" @click="handleClick('純文字按鈕')">
+            純文字按鈕
+          </button>
 
-            <!-- 右側 Icon + 文字 -->
-            <BaseButton variant="outline" @click="handleClick('關閉')">
-              關閉
-              <template #rightIcon>
-                <IconClose />
-              </template>
-            </BaseButton>
+          <button class="btn-outline" @click="handleClick('帶圖示')">
+            <IconAdd />
+            帶圖示
+          </button>
 
-            <!-- 左側 Icon -->
-            <BaseButton variant="outline" @click="handleClick('返回')">
-              <template #leftIcon>
-                <IconClose />
-              </template>
-              返回
-            </BaseButton>
+          <button class="btn-outline" disabled>
+            已停用
+          </button>
+        </div>
 
-            <!-- 純 Icon -->
-            <BaseButton variant="outline" @click="handleClick('純圖標')">
-              <template #leftIcon>
-                <IconClose />
-              </template>
-            </BaseButton>
+        <!-- 規格說明 -->
+        <div class="bg-primary-muted border-2 border-primary rounded-lg p-400">
+          <p class="text-body-m text-default font-medium mb-300">
+            ✅ 與 Solid 相同的尺寸規格
+          </p>
 
-            <!-- Disabled -->
-            <BaseButton variant="outline" disabled>
-              <template #rightIcon>
-                <IconClose />
-              </template>
-              已停用
-            </BaseButton>
-          </div>
-
-          <!-- Token 說明 -->
-          <div class="mt-400 p-400 bg-bg-subtle rounded-lg border border-border-default">
-            <h3 class="text-body-m font-medium text-text-default mb-200">
-              🎨 使用的 Component Tokens:
-            </h3>
-            <ul class="text-body-s text-text-secondary space-y-100">
-              <li><code>buttonOutlineBorderDefault</code>: #c51616 (預設邊框)</li>
-              <li><code>buttonOutlineBorderHover</code>: #df3f3f (Hover 邊框)</li>
-              <li><code>buttonOutlineBackgroundActive</code>: #8f0f0f (Active 背景)</li>
-              <li><code>buttonOutlineBorderDisabled</code>: #324467 (停用邊框)</li>
-              <li><code>buttonOutlineTextDefault</code>: #ffffff (文字顏色)</li>
+          <div class="text-caption text-secondary">
+            <p class="mb-200">唯一差異:</p>
+            <ul class="space-y-100 ml-400">
+              <li>• 背景透明</li>
+              <li>• 邊框: <code class="px-100 py-50 bg-page rounded text-[#48bb78]">2px solid #c51616</code></li>
             </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- 狀態對比展示 -->
-        <section class="bg-bg-elevated rounded-xl p-600 space-y-400">
-          <h2 class="text-h2 font-bold text-text-default">
-            所有狀態對比
-          </h2>
+      <!-- 檢查清單 -->
+      <section class="card border-2 border-[#48bb78]">
+        <h2 class="text-h3 text-[#48bb78] mb-400">
+          📋 正確數值檢查清單
+        </h2>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-            <!-- Solid 狀態 -->
-            <div class="space-y-300">
-              <h3 class="text-h3 font-medium text-text-default">Solid Variant</h3>
-              <div class="space-y-sm bg-bg-subtle p-400 rounded-lg">
-                <div class="flex items-center justify-between">
-                  <span class="text-body-s text-text-secondary">Default:</span>
-                  <BaseButton variant="solid">
-                    <template #leftIcon>
-                      <IconCheck />
-                    </template>
-                    確認
-                  </BaseButton>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-body-s text-text-secondary">Hover:</span>
-                  <span class="text-body-xs text-text-secondary">（滑鼠移入測試）</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-body-s text-text-secondary">Active:</span>
-                  <span class="text-body-xs text-text-secondary">（按下測試）</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-body-s text-text-secondary">Disabled:</span>
-                  <BaseButton variant="solid" disabled>
-                    <template #leftIcon>
-                      <IconCheck />
-                    </template>
-                    確認
-                  </BaseButton>
-                </div>
-              </div>
-            </div>
+        <ul class="space-y-200 text-body-m text-default mb-600">
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>按鈕高度是 40px（不是 36px 或其他）</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>左右 padding 是 16px（不是 24px）</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>Icon 和文字間距是 4px（不是 8px）</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>文字大小是 14px（不是 12px）</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>圓角是 8px</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>Solid 按鈕有紅色背景 (#c51616)</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>Outline 按鈕有紅色邊框 (#c51616)</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>圖示和文字是水平排列</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>Hover 時顏色會變淺 (#df3f3f)</span>
+          </li>
+          <li class="flex items-start gap-200">
+            <span class="text-[#48bb78] font-bold flex-shrink-0">✓</span>
+            <span>Active 時顏色會變深 (#8f0f0f)</span>
+          </li>
+        </ul>
 
-            <!-- Outline 狀態 -->
-            <div class="space-y-300">
-              <h3 class="text-h3 font-medium text-text-default">Outline Variant</h3>
-              <div class="space-y-sm bg-bg-subtle p-400 rounded-lg">
-                <div class="flex items-center justify-between">
-                  <span class="text-body-s text-text-secondary">Default:</span>
-                  <BaseButton variant="outline">
-                    取消
-                    <template #rightIcon>
-                      <IconClose />
-                    </template>
-                  </BaseButton>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-body-s text-text-secondary">Hover:</span>
-                  <span class="text-body-xs text-text-secondary">（滑鼠移入測試）</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-body-s text-text-secondary">Active:</span>
-                  <span class="text-body-xs text-text-secondary">（按下測試）</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-body-s text-text-secondary">Disabled:</span>
-                  <BaseButton variant="outline" disabled>
-                    取消
-                    <template #rightIcon>
-                      <IconClose />
-                    </template>
-                  </BaseButton>
-                </div>
-              </div>
-            </div>
+        <!-- 下一步提示 -->
+        <div class="bg-page border border-border-default rounded-lg p-400">
+          <p class="text-body-m text-default font-medium mb-300">
+            💡 下一步：
+          </p>
+          <div class="space-y-200 text-caption text-secondary">
+            <p>如果這個頁面顯示正確，請：</p>
+            <ol class="space-y-100 ml-400">
+              <li>1. 確認使用了正確的 <code class="px-100 py-50 bg-subtle rounded text-primary">tailwind.config.cjs</code></li>
+              <li>2. 確認使用了正確的 <code class="px-100 py-50 bg-subtle rounded text-primary">main.css</code></li>
+              <li>3. 重新啟動開發伺服器</li>
+              <li>4. 使用 <code class="px-100 py-50 bg-subtle rounded text-primary">.btn-solid</code> 和 <code class="px-100 py-50 bg-subtle rounded text-primary">.btn-outline</code> classes</li>
+            </ol>
           </div>
-        </section>
-
-        <!-- Icon 配置展示 -->
-        <section class="bg-bg-elevated rounded-xl p-600 space-y-400">
-          <h2 class="text-h2 font-bold text-text-default">
-            Icon 配置展示
-          </h2>
-
-          <div class="space-y-300">
-            <div class="flex flex-wrap gap-md items-center">
-              <div class="flex flex-col items-center gap-sm">
-                <BaseButton variant="solid">
-                  <template #leftIcon>
-                    <IconCheck />
-                  </template>
-                  左側 Icon
-                </BaseButton>
-                <span class="text-body-xs text-text-secondary">leftIcon slot</span>
-              </div>
-
-              <div class="flex flex-col items-center gap-sm">
-                <BaseButton variant="solid">
-                  右側 Icon
-                  <template #rightIcon>
-                    <IconPlus />
-                  </template>
-                </BaseButton>
-                <span class="text-body-xs text-text-secondary">rightIcon slot</span>
-              </div>
-
-              <div class="flex flex-col items-center gap-sm">
-                <BaseButton variant="solid">
-                  <template #leftIcon>
-                    <IconCheck />
-                  </template>
-                  雙 Icon
-                  <template #rightIcon>
-                    <IconPlus />
-                  </template>
-                </BaseButton>
-                <span class="text-body-xs text-text-secondary">兩個 slots</span>
-              </div>
-
-              <div class="flex flex-col items-center gap-sm">
-                <BaseButton variant="solid">
-                  <template #leftIcon>
-                    <IconCheck />
-                  </template>
-                </BaseButton>
-                <span class="text-body-xs text-text-secondary">純 Icon</span>
-              </div>
-            </div>
-
-            <div class="p-400 bg-bg-subtle rounded-lg border border-border-default">
-              <h3 class="text-body-m font-medium text-text-default mb-200">
-                📏 間距設定:
-              </h3>
-              <ul class="text-body-s text-text-secondary space-y-100">
-                <li>Icon 尺寸: <code>--spacing-600</code> (24px)</li>
-                <li>Icon 與文字間距: <code>mr-200</code> / <code>ml-200</code> (8px)</li>
-                <li>按鈕 Padding: <code>px-xl</code> / <code>py-md</code></li>
-                <li>純 Icon 按鈕: <code>p-200</code> (自動調整為方形)</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- 驗證說明 -->
-        <section class="bg-bg-subtle rounded-xl p-600 border-2 border-border-primary">
-          <h2 class="text-h2 font-bold text-text-primary mb-400">
-            ✅ 設計系統驗證
-          </h2>
-
-          <div class="space-y-300 text-body-m text-text-default">
-            <div class="flex items-start gap-md">
-              <span class="text-text-primary font-bold">✓</span>
-              <div>
-                <strong>顏色來源:</strong> 所有顏色皆來自 <code class="px-100 py-sm bg-bg-page rounded">tokens.json</code> 的 <code>component.button.*</code> 變數
-              </div>
-            </div>
-
-            <div class="flex items-start gap-md">
-              <span class="text-text-primary font-bold">✓</span>
-              <div>
-                <strong>間距系統:</strong> 使用 Tailwind 配置中的 spacing tokens（如 <code>px-xl</code>, <code>gap-md</code>）
-              </div>
-            </div>
-
-            <div class="flex items-start gap-md">
-              <span class="text-text-primary font-bold">✓</span>
-              <div>
-                <strong>狀態管理:</strong> Hover、Active、Disabled 狀態自動應用對應的 token 變數
-              </div>
-            </div>
-
-            <div class="flex items-start gap-md">
-              <span class="text-text-primary font-bold">✓</span>
-              <div>
-                <strong>Icon 支援:</strong> 透過具名插槽 <code>leftIcon</code> / <code>rightIcon</code> 靈活配置
-              </div>
-            </div>
-
-            <div class="flex items-start gap-md">
-              <span class="text-text-primary font-bold">✓</span>
-              <div>
-                <strong>無硬編碼:</strong> 所有樣式值皆來自設計系統，確保與 Figma 100% 一致
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
@@ -343,10 +193,6 @@ const handleClick = (action: string) => {
 <style scoped>
 code {
   font-family: 'Monaco', 'Courier New', monospace;
-  font-size: 0.875em;
-}
-
-.space-y-sm > * + * {
-  margin-top: var(--spacing-100);
+  font-size: 0.9em;
 }
 </style>
