@@ -1,171 +1,425 @@
 /** @type {import('tailwindcss').Config} */
+
+/**
+ * ⚠️ 此檔案由 generate-config.js 自動生成
+ * 請勿手動編輯！
+ * 
+ * 如需修改：
+ * 1. 編輯 tokens.json
+ * 2. 執行 node generate-config.js
+ * 
+ * 生成時間：2026/3/6 上午11:35:32
+ */
+
 module.exports = {
   content: [
-    "./index.html",
-    "./app/**/*.{vue,js,ts,jsx,tsx}",
-    "./pages/**/*.{vue,js,ts,jsx,tsx}",
-    "./components/**/*.{vue,js,ts,jsx,tsx}",
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./app/**/*.{js,vue,ts}",
+    "./app.vue",
+    "./error.vue",
   ],
   theme: {
     extend: {
-      // ============================================
-      // 間距系統 (Spacing) - 根據你的實際 tokens
-      // ============================================
       spacing: {
-        '50': '2px',     // xxs
-        '100': '4px',    // xs (icon-text gap)
-        '200': '8px',    // sm
-        '300': '12px',   // md
-        '400': '16px',   // lg (按鈕 padding-x)
-        '500': '20px',   // xl
-        '600': '24px',   // 2xl
-        '700': '32px',   // 3xl
-        '800': '40px',   // 4xl (按鈕高度)
-        '900': '48px',
-        '1000': '64px',
-      },
-
-      // ============================================
-      // 高度 (Height)
-      // ============================================
+  "100": "4px",
+  "200": "8px",
+  "300": "12px",
+  "400": "16px",
+  "500": "20px",
+  "600": "24px",
+  "700": "32px",
+  "800": "40px",
+  "900": "48px",
+  "1000": "64px",
+  "icontext": "4px",
+  "btngroup_x": "8px",
+  "btngroup_y": "8px",
+  "heading_y": "4px",
+  "objectgroup_x": "12px",
+  "section_y": "24px",
+  "sm": "4px",
+  "md": "8px",
+  "tag_x": "12px",
+  "object_x": "16px",
+  "object_xs": "4px",
+  "2xl": "20px",
+  "header": "24px",
+  "container": "24px",
+  "wrap": "40px"
+},
+      
       height: {
-        'btn-md': '40px',  // dimension/height/md
-      },
-
-      // ============================================
-      // 顏色系統 - 直接從 component tokens 映射
-      // ============================================
+  "100": "4px",
+  "200": "8px",
+  "300": "12px",
+  "400": "16px",
+  "500": "20px",
+  "600": "24px",
+  "700": "32px",
+  "800": "40px",
+  "900": "48px",
+  "1000": "64px",
+  "sm": "32px",
+  "md": "40px",
+  "lg": "48px",
+  "icon-xs": "12px",
+  "icon-sm": "16px",
+  "icon-md": "24px",
+  "icon-lg": "32px"
+},
+      
+      width: {
+  "100": "4px",
+  "200": "8px",
+  "300": "12px",
+  "400": "16px",
+  "500": "20px",
+  "600": "24px",
+  "700": "32px",
+  "800": "40px",
+  "900": "48px",
+  "1000": "64px",
+  "icon-xs": "12px",
+  "icon-sm": "16px",
+  "icon-md": "24px",
+  "icon-lg": "32px"
+},
+      
       colors: {
-        // === Button Solid ===
-        'btn-solid': '#c51616',                    // buttonSolidBackgroundDefault
-        'btn-solid-hover': '#df3f3f',             // buttonSolidBackgroundHover
-        'btn-solid-active': '#8f0f0f',            // buttonSolidBackgroundActive
-        'btn-solid-disabled': '#71809633',        // buttonSolidBackgroundDisabled
-        'btn-solid-text': '#ffffff',              // buttonSolidTextDefault
-        'btn-solid-text-disabled': '#ffffff7f',   // buttonSolidTextDisabled
-        'btn-solid-icon': '#ffffff',              // buttonSolidIconDefault
-        'btn-solid-icon-disabled': '#ffffff7f',   // buttonSolidIconDisabled
-
-        // === Button Outline ===
-        'btn-outline-border': '#c51616',          // buttonOutlineBorderDefault
-        'btn-outline-border-hover': '#df3f3f',    // buttonOutlineBorderHover
-        'btn-outline-border-disabled': '#324467', // buttonOutlineBorderDisabled
-        'btn-outline-active': '#8f0f0f',          // buttonOutlineBackgroundActive
-        'btn-outline-text': '#ffffff',            // buttonOutlineTextDefault
-        'btn-outline-text-disabled': '#ffffff7f', // buttonOutlineTextDisabled
-        'btn-outline-icon': '#ffffff',            // buttonOutlineIconDefault
-        'btn-outline-icon-disabled': '#ffffff7f', // buttonOutlineIconDisabled
-
-        // === Semantic Colors ===
-        'page': '#111722',              // backgroundPage
-        'subtle': '#151c2b',            // backgroundSubtle
-        'elevated': '#192233',          // backgroundElevated
-        'default': '#ffffff',           // textDefault
-        'secondary': '#a0aec0',         // textSecondary
-        'primary': '#c51616',           // primary colors
-        'primary-hover': '#df3f3f',     // primary hover
-        'primary-active': '#8f0f0f',    // primary active
-        'primary-muted': '#c5161633',   // primary muted
-        'gray-muted': '#71809633',      // gray muted
-        'yellow-muted': '#ecc94b33',    // yellow muted
-        'border-default': '#324467',    // borderDefault
-
-        // === Action Buttons ===
-        'action-edit-icon': '#a0aec0',
-        'action-edit-icon-interactive': '#cbd5e0',
-        'action-edit-bg-active': '#71809633',
-        'action-delete-icon': '#c51616',
-        'action-delete-icon-interactive': '#df3f3f',
-        'action-delete-bg-active': '#c5161633',
-        'action-show-icon': '#ecc94b',
-        'action-show-icon-interactive': '#f6e05e',
-        'action-show-bg-active': '#ecc94b33',
-        'action-hide-icon': '#a0aec0',
-        'action-hide-icon-interactive': '#cbd5e0',
-        'action-hide-bg-active': '#71809633',
-
-        // === Menu ===
-        'menu-bg': '#71809633',
-        'menu-bg-hover': '#df3f3f',
-        'menu-bg-active': '#c51616',
-        'menu-text': '#a0aec0',
-        'menu-text-interactive': '#ffffff',
-        'menu-icon': '#a0aec0',
-        'menu-icon-interactive': '#ffffff',
-
-        // === Input ===
-        'input-bg': '#111722',
-        'input-text': '#a0aec0',
-        'input-text-focus': '#ffffff',
-        'input-border': '#324467',
-        'input-border-focus': '#7180967f',
-
-        // === Dropdown ===
-        'dropdown-bg': '#111722',
-        'dropdown-bg-focus': '#111722',
-        'dropdown-text': '#ffffff',
-        'dropdown-border': '#324467',
-        'dropdown-border-focus': '#7180967f',
-
-        // === Pagination ===
-        'pagination-bg': '#00000000',
-        'pagination-bg-hover': '#df3f3f',
-        'pagination-bg-active': '#8f0f0f',
-        'pagination-text': '#a0aec0',
-        'pagination-text-interactive': '#ffffff',
-        'pagination-text-disabled': '#ffffff7f',
-        'pagination-border': '#324467',
-
-        // === Header ===
-        'header-bg': '#111722',
-        'header-action-bg-active': '#c5161633',
-        'header-action-icon': '#a0aec0',
-        'header-action-icon-hover': '#df3f3f',
-        'header-action-icon-active': '#df3f3f',
-        'header-logo-text': '#ffffff',
-        'header-logo-icon': '#c51616',
-        'header-user-name': '#ffffff',
-        'header-user-role': '#a0aec0',
-      },
-
-      // ============================================
-      // 字體大小 - 修正為 14px
-      // ============================================
+  "black": "#000000",
+  "white": "#ffffff",
+  "white-50": "#FFFFFF80",
+  "transparent": "#00000000",
+  "brand": "#d2bb6c",
+  "surface-100": "#111722",
+  "surface-200": "#151C2B",
+  "surface-300": "#192233",
+  "gray-100": "#f7fafc",
+  "gray-200": "#edf2f7",
+  "gray-300": "#e2e8f0",
+  "gray-400": "#cbd5e0",
+  "gray-500": "#a0aec0",
+  "gray-600": "#718096",
+  "gray-700": "#4a5568",
+  "gray-800": "#2d3748",
+  "gray-900": "#1a202c",
+  "gray-500-10": "rgba(113,128,150,0.1)",
+  "gray-500-20": "rgba(113,128,150,0.2)",
+  "gray-500-50": "rgba(113,128,150,0.5)",
+  "gray-500-90": "rgba(113,128,150,0.9)",
+  "red-100": "#F8EAEA",
+  "red-200": "#F0CACA",
+  "red-300": "#E09A9A",
+  "red-400": "#df3f3f",
+  "red-500": "#C51616",
+  "red-600": "#A81212",
+  "red-700": "#8F0F0F",
+  "red-800": "#740C0C",
+  "red-900": "#830201",
+  "red-500-20": "rgba(197,22,22,0.2)",
+  "red-500-50": "rgba(197,22,22,0.5)",
+  "orange-100": "#fffaf0",
+  "orange-200": "#feebc8",
+  "orange-300": "#fbd38d",
+  "orange-400": "#f6ad55",
+  "orange-500": "#ed8936",
+  "orange-600": "#dd6b20",
+  "orange-700": "#c05621",
+  "orange-800": "#9c4221",
+  "orange-900": "#7b341e",
+  "yellow-100": "#fffff0",
+  "yellow-200": "#fefcbf",
+  "yellow-300": "#faf089",
+  "yellow-400": "#f6e05e",
+  "yellow-500": "#ecc94b",
+  "yellow-600": "#d69e2e",
+  "yellow-700": "#b7791f",
+  "yellow-800": "#975a16",
+  "yellow-900": "#744210",
+  "yellow-500-20": "rgba(236, 201, 75, 0.2)",
+  "green-100": "#f0fff4",
+  "green-200": "#c6f6d5",
+  "green-300": "#9ae6b4",
+  "green-400": "#68d391",
+  "green-500": "#48bb78",
+  "green-600": "#38a169",
+  "green-700": "#2f855a",
+  "green-800": "#276749",
+  "green-900": "#22543d",
+  "green-500-10": "rgba(104,211,145,0.1)",
+  "green-500-20": "rgba(104,211,145,0.2)",
+  "green-500-50": "rgba(104,211,145,0.5)",
+  "teal-100": "#e6fffa",
+  "teal-200": "#b2f5ea",
+  "teal-300": "#81e6d9",
+  "teal-400": "#4fd1c5",
+  "teal-500": "#38b2ac",
+  "teal-600": "#319795",
+  "teal-700": "#2c7a7b",
+  "teal-800": "#285e61",
+  "teal-900": "#234e52",
+  "blue-100": "#ebf8ff",
+  "blue-200": "#bee3f8",
+  "blue-300": "#90cdf4",
+  "blue-400": "#63b3ed",
+  "blue-500": "#4299e1",
+  "blue-600": "#3182ce",
+  "blue-700": "#2b6cb0",
+  "blue-800": "#2c5282",
+  "blue-900": "#2a4365",
+  "indigo-100": "#ebf4ff",
+  "indigo-200": "#c3dafe",
+  "indigo-300": "#a3bffa",
+  "indigo-400": "#7f9cf5",
+  "indigo-500": "#667eea",
+  "indigo-600": "#5a67d8",
+  "indigo-700": "#4c51bf",
+  "indigo-800": "#434190",
+  "indigo-900": "#3c366b",
+  "purple-100": "#faf5ff",
+  "purple-200": "#e9d8fd",
+  "purple-300": "#d6bcfa",
+  "purple-400": "#b794f4",
+  "purple-500": "#9f7aea",
+  "purple-600": "#805ad5",
+  "purple-700": "#6b46c1",
+  "purple-800": "#553c9a",
+  "purple-900": "#44337a",
+  "pink-100": "#fff5f7",
+  "pink-200": "#fed7e2",
+  "pink-300": "#fbb6ce",
+  "pink-400": "#f687b3",
+  "pink-500": "#ed64a6",
+  "pink-600": "#d53f8c",
+  "pink-700": "#b83280",
+  "pink-800": "#97266d",
+  "pink-900": "#702459",
+  "border-300": "#71809680",
+  "border-800": "#324467",
+  "border-900": "#253452",
+  "bg-page": "#111722",
+  "bg-subtle": "#151C2B",
+  "bg-elevated": "#192233",
+  "bg-primary": "#C51616",
+  "bg-primary-hover": "#df3f3f",
+  "bg-primary-active": "#8F0F0F",
+  "bg-primary-muted": "rgba(197,22,22,0.2)",
+  "bg-gray-muted": "rgba(113,128,150,0.2)",
+  "bg-yellow-muted": "rgba(236, 201, 75, 0.2)",
+  "bg-transparent": "#00000000",
+  "text-default": "#ffffff",
+  "text-secondary": "#a0aec0",
+  "text-primary": "#C51616",
+  "text-disabled": "rgba(113,128,150,0.5)",
+  "icon-default": "#ffffff",
+  "icon-secondary": "#a0aec0",
+  "icon-primary": "#C51616",
+  "icon-primary-hover": "#df3f3f",
+  "icon-disabled": "rgba(113,128,150,0.5)",
+  "icon-visible": "#ecc94b",
+  "icon-visible-hover": "#f6e05e",
+  "icon-secondary-hover": "#cbd5e0",
+  "border-primary": "#C51616",
+  "border-primary-hover": "#df3f3f",
+  "border-primary-active": "#8F0F0F",
+  "border-default": "#324467",
+  "border-disabled": "#71809680",
+  "button-solid-background-default": "#C51616",
+  "button-solid-background-hover": "#df3f3f",
+  "button-solid-background-active": "#8F0F0F",
+  "button-solid-background-disabled": "rgba(113,128,150,0.2)",
+  "button-solid-text-default": "#ffffff",
+  "button-solid-text-disabled": "rgba(113,128,150,0.5)",
+  "button-solid-icon-default": "#ffffff",
+  "button-solid-icon-disabled": "rgba(113,128,150,0.5)",
+  "button-outline-background-active": "#8F0F0F",
+  "button-outline-text-default": "#ffffff",
+  "button-outline-text-disabled": "rgba(113,128,150,0.5)",
+  "button-outline-border-default": "#C51616",
+  "button-outline-border-hover": "#df3f3f",
+  "button-outline-border-disabled": "#71809680",
+  "button-outline-icon-default": "#ffffff",
+  "button-outline-icon-disabled": "rgba(113,128,150,0.5)",
+  "action-edit-background-active": "rgba(113,128,150,0.2)",
+  "action-edit-icon-default": "#a0aec0",
+  "action-edit-icon-interactive": "#cbd5e0",
+  "action-delete-background-active": "rgba(197,22,22,0.2)",
+  "action-delete-icon-default": "#C51616",
+  "action-delete-icon-interactive": "#df3f3f",
+  "action-show-background-active": "rgba(236, 201, 75, 0.2)",
+  "action-show-icon-default": "#ecc94b",
+  "action-show-icon-interactive": "#f6e05e",
+  "action-hide-background-active": "rgba(113,128,150,0.2)",
+  "action-hide-icon-default": "#a0aec0",
+  "action-hide-icon-interactive": "#cbd5e0",
+  "menu-item-background-default": "rgba(113,128,150,0.2)",
+  "menu-item-background-hover": "#df3f3f",
+  "menu-item-background-active": "#C51616",
+  "menu-item-text-default": "#a0aec0",
+  "menu-item-text-interactive": "#ffffff",
+  "menu-item-icon-default": "#a0aec0",
+  "menu-item-icon-interactive": "#ffffff",
+  "header-container-background": "#111722",
+  "header-logo-text": "#ffffff",
+  "header-logo-icon": "#C51616",
+  "header-action-icon-default": "#a0aec0",
+  "header-action-icon-hover": "#df3f3f",
+  "header-action-icon-active": "#df3f3f",
+  "header-action-background-active": "rgba(197,22,22,0.2)",
+  "header-user-name": "#ffffff",
+  "header-user-role": "#a0aec0",
+  "pagination-background-hover": "#df3f3f",
+  "pagination-background-active": "#8F0F0F",
+  "pagination-text-default": "#a0aec0",
+  "pagination-text-interactive": "#ffffff",
+  "pagination-text-disabled": "rgba(113,128,150,0.5)",
+  "pagination-border-default": "#324467",
+  "pagination-border-disabled": "#71809680",
+  "borderRadius-interactive": "8",
+  "borderRadius-container": "12px",
+  "typography-table-default": {
+    "fontFamily": "{fontFamily.body}",
+    "fontWeight": "{fontWeight.regular}",
+    "fontSize": "{fontSize.body.s}",
+    "lineHeight": "{lineHeight.flat}",
+    "letterSpacing": "{letterSpacing.normal}"
+  },
+  "typography-table-hover": {
+    "fontFamily": "{fontFamily.body}",
+    "fontWeight": "{fontWeight.medium}",
+    "fontSize": "{fontSize.body.s}",
+    "lineHeight": "{lineHeight.flat}",
+    "letterSpacing": "{letterSpacing.normal}"
+  },
+  "typography-breadcrumbs-default": {
+    "fontFamily": "{fontFamily.body}",
+    "fontWeight": "{fontWeight.regular}",
+    "fontSize": "{fontSize.body.s}",
+    "lineHeight": "{lineHeight.flat}",
+    "letterSpacing": "{letterSpacing.loose}"
+  },
+  "typography-breadcrumbs-interactive": {
+    "fontFamily": "{fontFamily.body}",
+    "fontWeight": "{fontWeight.medium}",
+    "fontSize": "{fontSize.body.s}",
+    "lineHeight": "{lineHeight.flat}",
+    "letterSpacing": "{letterSpacing.loose}"
+  },
+  "typography-user-name": {
+    "fontFamily": "{fontFamily.body}",
+    "fontWeight": "{fontWeight.medium}",
+    "fontSize": "{fontSize.body.m}",
+    "lineHeight": "{lineHeight.flat}",
+    "letterSpacing": "{letterSpacing.loose}"
+  },
+  "typography-user-role": {
+    "fontFamily": "{fontFamily.body}",
+    "fontWeight": "{fontWeight.regular}",
+    "fontSize": "{fontSize.body.s}",
+    "lineHeight": "{lineHeight.flat}",
+    "letterSpacing": "{letterSpacing.loose}"
+  },
+  "input-border-default": "#324467",
+  "input-border-focus": "#df3f3f",
+  "input-text-default": "#a0aec0",
+  "input-text-focus": "#ffffff",
+  "input-background-default": "#111722",
+  "dropdown-border-default": "#324467",
+  "dropdown-border-focus": "#71809680",
+  "dropdown-text-default": "#ffffff",
+  "dropdown-background-default": "#111722"
+},
+      
       fontSize: {
-        // Headers
-        'h1': ['32px', { lineHeight: '40px', fontWeight: '700' }],
-        'h2': ['28px', { lineHeight: '36px', fontWeight: '700' }],
-        'h3': ['24px', { lineHeight: '32px', fontWeight: '600' }],
-        'h4': ['20px', { lineHeight: '28px', fontWeight: '600' }],
-        'h5': ['18px', { lineHeight: '24px', fontWeight: '600' }],
-
-        // Body
-        'body-l': ['16px', { lineHeight: '24px', fontWeight: '400' }],
-        'body-m': ['14px', { lineHeight: '20px', fontWeight: '400' }],
-        'body-s': ['14px', { lineHeight: '20px', fontWeight: '400' }],  // ✅ 修正為 14px
-
-        'label': ['14px', { lineHeight: '20px', fontWeight: '500' }],
-        'caption': ['12px', { lineHeight: '16px', fontWeight: '400' }],
-      },
-
-      // ============================================
-      // 圓角 (Border Radius)
-      // ============================================
+  "100": "12px",
+  "200": "14px",
+  "300": "16px",
+  "400": "18px",
+  "500": "20px",
+  "600": "24px",
+  "700": "32px",
+  "800": "40px",
+  "h1": "32px",
+  "h2": "24px",
+  "h3": "20px",
+  "body_l": "18px",
+  "body_m": "16px",
+  "body_s": "14px",
+  "body_xs": "12px"
+},
+      
+      fontWeight: {
+  "400": "400",
+  "600": "600",
+  "700": "700",
+  "regular": "400",
+  "medium": "600",
+  "bold": "700"
+},
+      
+      lineHeight: {
+  "100": "100%",
+  "120": "120%",
+  "150": "150%",
+  "175": "175%",
+  "flat": "100%",
+  "tight": "120%",
+  "comfortable": "150%"
+},
+      
+      letterSpacing: {
+  "100": "-0.02em",
+  "200": "-0.01em",
+  "300": "0em",
+  "400": "0.01em",
+  "500": "0.025em",
+  "600": "0.05em",
+  "700": "0.1em",
+  "tighter": "-0.02em",
+  "tight": "-0.01em",
+  "normal": "0em",
+  "relaxed": "0.01em",
+  "loose": "0.025em",
+  "looser": "0.05em",
+  "looset": "0.1em"
+},
+      
       borderRadius: {
-        'sm': '4px',
-        'DEFAULT': '8px',
-        'md': '8px',       // 互動元件 (按鈕)
-        'lg': '12px',      // 容器
-        'xl': '16px',
-        'full': '9999px',
-      },
-
-      // ============================================
-      // 字體
-      // ============================================
+  "100": "4px",
+  "200": "8px",
+  "300": "12px",
+  "400": "16px",
+  "full": "9999px",
+  "none": "0px",
+  "sm": "4px",
+  "lg": "8px",
+  "xl": "12px",
+  "2xl": "16px"
+},
+      
+      borderWidth: {
+  "100": "1px",
+  "200": "2px",
+  "300": "3px",
+  "400": "4px",
+  "none": "0",
+  "standard": "1px",
+  "active": "2px",
+  "decorative": "3px"
+},
+      
       fontFamily: {
-        'body': ['Inter', 'system-ui', 'sans-serif'],
-      },
+  "sans": [
+    "Inter",
+    "\"Segoe UI\"",
+    "\"PingFang TC\"",
+    "\"Microsoft JhengHei\"",
+    "sans-serif"
+  ]
+},
     },
   },
   plugins: [],

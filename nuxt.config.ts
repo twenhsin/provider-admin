@@ -7,4 +7,10 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
   ],
+  
+  // 加入這段 ↓
+  tailwindcss: {
+    configPath: './tailwind.config.cjs',
+    exposeConfig: true,
+  }
 })

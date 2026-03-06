@@ -1,170 +1,19 @@
-/* ============================================
-   Tailwind CSS 導入
-   ============================================ */
+/**
+ * Design System - Main CSS
+ * 使用語義化 Tailwind classes
+ * 
+ * 當 tokens.json 改變時：
+ * 1. 執行 node generate-config.js
+ * 2. 此檔案不需修改（因為使用語義化 key）
+ * 3. Tailwind 重新編譯時會自動套用新值
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ============================================
-   全域樣式
+   預製組件 Classes
    ============================================ */
-@layer base {
-  body {
-    @apply font-body text-body-m text-default bg-page;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-}
 
-/* ============================================
-   預製 Component Classes - 使用正確數值
-   ============================================ */
-@layer components {
-
-  /* ===== 按鈕 ===== */
-
-  .btn-solid {
-    @apply inline-flex items-center justify-center;
-    @apply bg-btn-solid text-btn-solid-text;
-    @apply hover:bg-btn-solid-hover;
-    @apply active:bg-btn-solid-active;
-    @apply disabled:bg-btn-solid-disabled disabled:text-btn-solid-text-disabled disabled:cursor-not-allowed;
-    
-    /* ✅ 正確數值 */
-    @apply px-400;           /* 16px 左右 padding */
-    @apply h-800;            /* 40px 高度 */
-    @apply gap-100;          /* 4px icon-文字間距 */
-    @apply rounded-md;       /* 8px 圓角 */
-    
-    @apply text-body-s font-normal;  /* 14px 文字 */
-    @apply transition-colors duration-200 cursor-pointer;
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center;
-    @apply border-2 border-btn-outline-border bg-transparent;
-    @apply text-btn-outline-text;
-    @apply hover:border-btn-outline-border-hover;
-    @apply active:bg-btn-outline-active;
-    @apply disabled:border-btn-outline-border-disabled disabled:text-btn-outline-text-disabled disabled:cursor-not-allowed;
-    
-    /* ✅ 正確數值 */
-    @apply px-400;           /* 16px 左右 padding */
-    @apply h-800;            /* 40px 高度 */
-    @apply gap-100;          /* 4px icon-文字間距 */
-    @apply rounded-md;       /* 8px 圓角 */
-    
-    @apply text-body-s font-normal;  /* 14px 文字 */
-    @apply transition-all duration-200 cursor-pointer;
-  }
-
-  /* ===== 操作按鈕 ===== */
-
-  .btn-action-edit {
-    @apply p-200 rounded;
-    @apply text-action-edit-icon;
-    @apply hover:text-action-edit-icon-interactive hover:bg-action-edit-bg-active;
-    @apply transition-all duration-200 cursor-pointer;
-  }
-
-  .btn-action-delete {
-    @apply p-200 rounded;
-    @apply text-action-delete-icon;
-    @apply hover:text-action-delete-icon-interactive hover:bg-action-delete-bg-active;
-    @apply transition-all duration-200 cursor-pointer;
-  }
-
-  .btn-action-show {
-    @apply p-200 rounded;
-    @apply text-action-show-icon;
-    @apply hover:text-action-show-icon-interactive hover:bg-action-show-bg-active;
-    @apply transition-all duration-200 cursor-pointer;
-  }
-
-  .btn-action-hide {
-    @apply p-200 rounded;
-    @apply text-action-hide-icon;
-    @apply hover:text-action-hide-icon-interactive hover:bg-action-hide-bg-active;
-    @apply transition-all duration-200 cursor-pointer;
-  }
-
-  /* ===== 選單 ===== */
-
-  .menu-item {
-    @apply bg-menu-bg text-menu-text;
-    @apply hover:bg-menu-bg-hover hover:text-menu-text-interactive;
-    @apply active:bg-menu-bg-active;
-    @apply px-400 py-300 rounded;
-    @apply cursor-pointer transition-all duration-200;
-  }
-
-  /* ===== 表單 ===== */
-
-  .input {
-    @apply w-full;
-    @apply bg-input-bg text-input-text;
-    @apply border border-input-border;
-    @apply focus:border-input-border-focus focus:text-input-text-focus;
-    @apply focus:outline-none;
-    @apply px-300 py-200 rounded-md;
-    @apply transition-all duration-200;
-  }
-
-  .dropdown {
-    @apply w-full;
-    @apply bg-dropdown-bg text-dropdown-text;
-    @apply border border-dropdown-border;
-    @apply focus:bg-dropdown-bg-focus focus:border-dropdown-border-focus;
-    @apply focus:outline-none;
-    @apply px-300 py-200 rounded-md;
-    @apply transition-all duration-200;
-  }
-
-  .label {
-    @apply text-label text-default;
-    @apply block mb-200;
-  }
-
-  /* ===== 卡片 ===== */
-
-  .card {
-    @apply bg-elevated;
-    @apply border border-default;
-    @apply rounded-lg;
-    @apply p-600;
-  }
-
-  /* ===== 分頁 ===== */
-
-  .pagination-item {
-    @apply bg-pagination-bg text-pagination-text;
-    @apply border border-pagination-border;
-    @apply hover:bg-pagination-bg-hover hover:text-pagination-text-interactive;
-    @apply active:bg-pagination-bg-active;
-    @apply disabled:text-pagination-text-disabled disabled:cursor-not-allowed;
-    @apply px-300 py-200 rounded;
-    @apply transition-all duration-200 cursor-pointer;
-  }
-
-  /* ===== Header ===== */
-
-  .header {
-    @apply bg-header-bg;
-    @apply px-600 py-400;
-    @apply flex items-center justify-between;
-  }
-
-  .header-action {
-    @apply p-200 rounded;
-    @apply text-header-action-icon;
-    @apply hover:text-header-action-icon-hover hover:bg-header-action-bg-active;
-    @apply active:text-header-action-icon-active;
-    @apply transition-all duration-200 cursor-pointer;
-  }
-}

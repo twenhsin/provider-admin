@@ -1,0 +1,127 @@
+{
+  "id": "156:449",
+  "name": "Icon/Store",
+  "type": "COMPONENT",
+  "scrollBehavior": "SCROLLS",
+  "children": [
+    {
+      "id": "155:6935",
+      "name": "Vector",
+      "type": "VECTOR",
+      "scrollBehavior": "SCROLLS",
+      "boundVariables": {
+        "strokeWeight": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:b1ec25c3299ca71749d9ce509af15a1c29dcf4db/1:39"
+        },
+        "opacity": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:b3401e0d793011b38540ec9f29348d83fdb25604/1:42"
+        },
+        "fills": [
+          {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:156:556"
+          }
+        ]
+      },
+      "blendMode": "PASS_THROUGH",
+      "fills": [
+        {
+          "blendMode": "NORMAL",
+          "type": "SOLID",
+          "color": {
+            "r": 0.6274510025978088,
+            "g": 0.6823529601097107,
+            "b": 0.7529411911964417,
+            "a": 1.0
+          },
+          "boundVariables": {
+            "color": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:156:556"
+            }
+          }
+        }
+      ],
+      "strokes": [],
+      "strokeWeight": 0.02430555410683155,
+      "strokeAlign": "INSIDE",
+      "absoluteBoundingBox": {
+        "x": 139.0,
+        "y": 131.0,
+        "width": 14.0,
+        "height": 12.0
+      },
+      "absoluteRenderBounds": {
+        "x": 139.0,
+        "y": 131.0,
+        "width": 14.0,
+        "height": 12.0
+      },
+      "preserveRatio": true,
+      "targetAspectRatio": {
+        "x": 19.535715103149414,
+        "y": 17.5
+      },
+      "constraints": {
+        "vertical": "CENTER",
+        "horizontal": "CENTER"
+      },
+      "effects": [],
+      "interactions": [],
+      "complexStrokeProperties": {
+        "strokeType": "BASIC"
+      }
+    }
+  ],
+  "blendMode": "PASS_THROUGH",
+  "clipsContent": false,
+  "background": [],
+  "fills": [],
+  "strokes": [],
+  "strokeWeight": 0.9999999403953552,
+  "strokeAlign": "INSIDE",
+  "backgroundColor": {
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+  },
+  "absoluteBoundingBox": {
+    "x": 134.0,
+    "y": 125.0,
+    "width": 24.0,
+    "height": 24.0
+  },
+  "absoluteRenderBounds": {
+    "x": 134.0,
+    "y": 125.0,
+    "width": 24.0,
+    "height": 24.0
+  },
+  "preserveRatio": true,
+  "targetAspectRatio": {
+    "x": 32.0,
+    "y": 32.0
+  },
+  "constraints": {
+    "vertical": "SCALE",
+    "horizontal": "CENTER"
+  },
+  "exportSettings": [
+    {
+      "suffix": "",
+      "format": "SVG",
+      "constraint": {
+        "type": "SCALE",
+        "value": 1.0
+      }
+    }
+  ],
+  "effects": [],
+  "interactions": [],
+  "complexStrokeProperties": {
+    "strokeType": "BASIC"
+  }
+}
